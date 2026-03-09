@@ -10,6 +10,8 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
 
 	List<Question> findByDifficaltyLevel(String difficaltyLevel);
 
+	List<Question> findByCategory(String category);
+
 	
 
 }

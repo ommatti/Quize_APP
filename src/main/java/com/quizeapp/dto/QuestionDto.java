@@ -20,6 +20,16 @@ public class QuestionDto {
 	private String rightAnswer;
 	
 	private String difficaltyLevel;
+	
+	private String category; 
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 	public long getId() {
 		return id;
