@@ -95,6 +95,11 @@ public class QuestionDto {
 		this.difficaltyLevel = difficaltyLevel;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "QuestionDto [id=" + id + ", questionTitle=" + questionTitle + ", Option1=" + Option1 + ", Option2="
+				+ Option2 + ", Option3=" + Option3 + ", Option4=" + Option4 + ", rightAnswer=" + rightAnswer
+				+ ", difficaltyLevel=" + difficaltyLevel + ", category=" + category + "]";
+	}
 	
 }

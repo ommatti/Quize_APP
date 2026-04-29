@@ -2,10 +2,12 @@ package com.quizeapp.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
+import com.quizeapp.dto.QuizeQuestionDto;
 import com.quizeapp.entity.Question;
 import com.quizeapp.entity.Quiz;
 import com.quizeapp.repository.QuestionRepository;
@@ -58,4 +60,23 @@ public class QuizService {
 
         return quizRepository.save(quiz);
     }
+
+    //Get Question of Quize By Id
+	public List<QuizeQuestionDto> getQuizeQuestion(Long id) {
+		Optional<Quiz> quize = quizRepository.findById(id);
+		List<Question> questionFromDb = quize.get().getQuestions();
+		List<QuizeQuestionDto> questionForUser = new ArrayList<>();
+		
+		for(Question q : questionFromDb) {
+			QuizeQuestionDto dto = new QuizeQuestionDto(q.getId(),
+														q.getQuestionTitle(),
+														q.getOption1(),
+														q.getOption2(),
+														q.getOption3(),
+														q.getOption4());
+			
+			questionForUser.add(dto);
+		}
+		return questionForUser;
+	}
 }

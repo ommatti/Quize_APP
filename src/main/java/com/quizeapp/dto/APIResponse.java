@@ -2,7 +2,7 @@ package com.quizeapp.dto;
 
 import java.util.Date;
 
-public class APIResponse {
+public class APIResponse<T> {
 
 	private String message;
 	
@@ -12,6 +12,7 @@ public class APIResponse {
 
 	 private int statusCode;
 	 
+	 private T data; 
 	 
 	public int getStatusCode() {
 		return statusCode;
@@ -44,6 +45,16 @@ public class APIResponse {
 	public void setTimeStamp(Date timeStamp) {
 		this.timeStamp = timeStamp;
 	}
+
+	public T getData() {
+		return data;
+	}
+
+	public void setData(T data) {
+		this.data = data;
+	}
+	
+	
 	
 	
 
